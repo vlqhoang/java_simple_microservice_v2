@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * that resolved (matched) with given service name.
  */
 @FeignClient(name = "api-gateway")
-//@FeignClient(name = "currency-exchange-service")
+//@FeignClient(name = "currency-exchange-service") // config this for this service to directly contact currency-exchange-service
 public interface CurrencyExchangeServiceFeign {
 
     @GetMapping("/currency-exchange/from/{from}/to/{to}") // using uri to service

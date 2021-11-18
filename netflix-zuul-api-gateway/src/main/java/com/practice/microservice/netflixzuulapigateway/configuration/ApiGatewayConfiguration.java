@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ApiGatewayConfiguration {
 
+    /**
+     * Using Spring Cloud Route to configure route logic of this gateway
+     */
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
         return builder.routes()
