@@ -2,9 +2,12 @@
 This project is to demo a simple microservice architecture using Spring Cloud and all services are Docker containerized. 
 
 ## How to use
+* **With Docker**.
 ```bash 
 cd docker/ && docker compose up
 ```
+* **With Kubernetes**.
+  * Refer to ./kubernetes for more information.
 
 ## Techs
 This project has the following features:
@@ -12,14 +15,16 @@ This project has the following features:
 * **Netflix Zuul API Gateway** (intercepting all incoming requests,
   perform logging and distribute requests to services based on **Spring Cloud Route**).
 * **Feign + Spring Cloud loadbalancer** as client load balancing (automatically balancing requests
-  to services base on service name registered with Eureka Naming Server).
+  to all services base on service name registered with Eureka Naming Server).
 * **Eureka naming server** (Managing all services info).
 * Centralized and distributed tracing server with **Spring could sleuth and Zipkin**.
-  Configured to **rabbit-mq server**.
+  Configured to **rabbit-mq server** so that services can send tracing data to Zipkin via queue.
 * **Spring cloud config** (Holding configs and distribute them to services).
 * **Devtool** live reload.
 * Simple service managing mechanism with **Spring Actuator**.
 * **Resilience4j** fault tolerance.
+* **Dockerized**
+* Orchestrated with **Kubernetes**.
 
 ## Usage
 
