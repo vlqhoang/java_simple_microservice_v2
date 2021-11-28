@@ -14,14 +14,14 @@ public class ApiGatewayConfiguration {
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
         return builder.routes()
-                // build custom redirect (dummy example)
+                // build custom redirect (dummy example!.)
                 .route((predicateSpec) -> predicateSpec.path("/get") // matching requests by a regex (here is to search for a String) from request path
                         .filters(gatewayFilterSpec -> gatewayFilterSpec
                                 .addRequestHeader("MyHeader", "MyURI")
                                 .addRequestParameter("Param", "MyParamValue"))
                         .uri("http://httpbin:80"))
 
-                // build custom redirect for currency exchange service and perform load balancing with matched service from eureka.
+                // build custom redirect for currency exchange service and perform Spring Cloud load balancing with matched service from eureka.
                 // Can test with -> http://localhost:8765/currency-exchange/from/USD/to/INR
                 .route((predicateSpec) -> predicateSpec.path("/currency-exchange/**")
                         .uri("lb://currency-exchange-service"))
